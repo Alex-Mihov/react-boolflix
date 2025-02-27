@@ -1,5 +1,9 @@
 import Flag from "react-world-flags";
 
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+
 export default function TvSerieCard(props) {
 
     // destructoring dell'ggetto props
@@ -21,21 +25,56 @@ export default function TvSerieCard(props) {
         return languageToCountry[languageCode] || 'US';
     }
 
+    // salvo il valore del voto in una costante 
+    const voto = Math.ceil(serie.vote_average.toFixed(0) / 2);
+
     return (
         <>
             <div className="section">
                 <div className="card">
+                    {/* titoli */}
                     <h3>Titolo: {serie.name}</h3>
                     <h4>Titolo orinale: {serie.original_name}</h4>
+                    {/* immagine */}
                     <img src={`https://image.tmdb.org/t/p/w342${serie.backdrop_path}`} alt={serie.name} />
                     <br />
+                    {/* badiera in base alla lingua */}
                     <span>
                         Lingua:
                         <Flag code={getFlagCode(serie.original_language)} style={{ width: '24px', height: '16px' }} />
                     </span>
-                    <h4>Valutazione: {serie.vote_average.toFixed(0)}</h4>
+                    {/* valutazione */}
+                    <h4>
+                        <div>
+                            {voto >= 1 ? (
+                                <FontAwesomeIcon icon={faStar} style={{ color: '#FFD43B' }} />
+                            ) : (
+                                <FontAwesomeIcon icon={faStar} style={{ color: '#ffffff' }} />
+                            )}
+                            {voto >= 2 ? (
+                                <FontAwesomeIcon icon={faStar} style={{ color: '#FFD43B' }} />
+                            ) : (
+                                <FontAwesomeIcon icon={faStar} style={{ color: '#ffffff' }} />
+                            )}
+                            {voto >= 3 ? (
+                                <FontAwesomeIcon icon={faStar} style={{ color: '#FFD43B' }} />
+                            ) : (
+                                <FontAwesomeIcon icon={faStar} style={{ color: '#ffffff' }} />
+                            )}
+                            {voto >= 4 ? (
+                                <FontAwesomeIcon icon={faStar} style={{ color: '#FFD43B' }} />
+                            ) : (
+                                <FontAwesomeIcon icon={faStar} style={{ color: '#ffffff' }} />
+                            )}
+                            {voto >= 5 ? (
+                                <FontAwesomeIcon icon={faStar} style={{ color: '#FFD43B' }} />
+                            ) : (
+                                <FontAwesomeIcon icon={faStar} style={{ color: '#ffffff' }} />
+                            )}
+                        </div>
+                    </h4>
                 </div>
-            </div>
+            </div >
         </>
     )
 
