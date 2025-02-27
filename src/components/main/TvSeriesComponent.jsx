@@ -2,26 +2,25 @@
 import { useContext } from "react"
 import GlobalContext from "../../contexts/GlobalContext"
 
-// importo il componente card 
-import MovieCard from "./MovieCard"
+// importo il componente TvSerieCard
+import TvSerieCard from "./TvSerieCard";
 
-
-export default function FilmComponent() {
+export default function TvSeriesComponent() {
 
     // destrutturo l'esecuzione del useContext
-    const { movies } = useContext(GlobalContext)
+    const { series } = useContext(GlobalContext)
 
     return (
         <>
             <div>
                 {/* titolo sezione */}
-                <h1 className="titolo">Risultati per i Film</h1>
+                <h1 className="titolo">Risultati per i le Serie</h1>
 
 
                 {/* ciclo map per stampare tutti i film */}
                 <div>
                     {
-                        movies.map(movie => <MovieCard key={movie.id} movie={movie} />)
+                        series.map(serie => <TvSerieCard key={serie.id} serie={serie} />)
                     }
                 </div>
             </div>

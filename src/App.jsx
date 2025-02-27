@@ -10,15 +10,18 @@ import axios from "axios";
 function App() {
 
 
-  // utilizzo dello useState per gestire i dati
-  const [movies, setMovies] = useState([]);
+
 
   // stato per la query
   const [query, setQuery] = useState("");
 
+  // utilizzo dello useState per gestire i dati dei film
+  const [movies, setMovies] = useState([]);
+
+  ;
+
   function fetchMovies(query) {
     axios.get(`https://api.themoviedb.org/3/search/movie?api_key=a656c9d2486eeeb806449b024d6cb0c8&query=${query}`)
-      //  "https://api.themoviedb.org/3/search/movie?api_key=a656c9d2486eeeb806449b024d6cb0c8&query=ritorno+al+futuro"
       .then(res => {
 
         setMovies(res.data.results);
@@ -30,11 +33,25 @@ function App() {
   useEffect(() => { fetchMovies(query) }, [query]);
 
 
+  // utilizzo dello useState per gestire i dati delle serie
+  const [series, setSeries] = useState([])
+
+  function fetchSeries(query) {
+    axios.get(`https://api.themoviedb.org/3/search/tv?api_key=a656c9d2486eeeb806449b024d6cb0c8&query=${query}`)
+      .then(res => {
+
+        setSeries(res.data.results);
+        // console.log(res.data.results);
+      })
+      .catch(err => console.log(err));
+  }
+
+  useEffect(() => { fetchSeries(query) }, [query]);
 
   return (
     <>
       {/* utilizzo GlobalCntext.Provider per redndere i dati della chiamata a livello globale */}
-      <GlobalContext.Provider value={{ movies, setQuery }}>
+      <GlobalContext.Provider value={{ movies, series, setQuery }}>
         <Header />
         <Main />
       </GlobalContext.Provider>
