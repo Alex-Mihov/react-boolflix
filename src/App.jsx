@@ -9,11 +9,16 @@ import axios from "axios";
 
 function App() {
 
+
   // utilizzo dello useState per gestire i dati
   const [movies, setMovies] = useState([]);
 
-  function fetchMovies() {
-    axios.get("https://api.themoviedb.org/3/search/movie?api_key=a656c9d2486eeeb806449b024d6cb0c8&query=ritorno+al+futuro")
+  // stato per la query
+  const [query, setQuery] = useState("");
+
+  function fetchMovies(query) {
+    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=a656c9d2486eeeb806449b024d6cb0c8&query=${query}`)
+      //  "https://api.themoviedb.org/3/search/movie?api_key=a656c9d2486eeeb806449b024d6cb0c8&query=ritorno+al+futuro"
       .then(res => {
 
         setMovies(res.data.results);
@@ -22,14 +27,14 @@ function App() {
       .catch(err => console.log(err));
   }
 
-  useEffect(fetchMovies, []);
+  useEffect(() => { fetchMovies(query) }, [query]);
 
 
 
   return (
     <>
       {/* utilizzo GlobalCntext.Provider per redndere i dati della chiamata a livello globale */}
-      <GlobalContext.Provider value={{ movies }}>
+      <GlobalContext.Provider value={{ movies, setQuery }}>
         <Header />
         <Main />
       </GlobalContext.Provider>
