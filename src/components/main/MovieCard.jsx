@@ -26,6 +26,24 @@ export default function MovieCard(props) {
 
     // salvo il valore del voto in una costante 
     const voto = Math.ceil(movie.vote_average.toFixed(0) / 2);
+    // funzione per generare le stelle
+    const valutazioneFinale = (valutazione) => {
+
+        // creazione costante vuota per le stelle 
+        const stelle = [];
+
+        // ciclo for per fare il push nella costante stelle
+        for (let i = 1; i <= 5; i++) {
+            stelle.push(
+                <FontAwesomeIcon
+                    key={i}
+                    icon={faStar}
+                    style={{ color: i <= valutazione ? '#FFD43B' : '#ffffff' }}
+                />
+            );
+        }
+        return stelle;
+    }
 
     return (
         <>
@@ -44,31 +62,9 @@ export default function MovieCard(props) {
                         <Flag code={getFlagCode(movie.original_language)} style={{ width: '24px', height: '16px' }} />
                     </span>
                     <h4>
-                        {voto >= 1 ? (
-                            <FontAwesomeIcon icon={faStar} style={{ color: '#FFD43B' }} />
-                        ) : (
-                            <FontAwesomeIcon icon={faStar} style={{ color: '#ffffff' }} />
-                        )}
-                        {voto >= 2 ? (
-                            <FontAwesomeIcon icon={faStar} style={{ color: '#FFD43B' }} />
-                        ) : (
-                            <FontAwesomeIcon icon={faStar} style={{ color: '#ffffff' }} />
-                        )}
-                        {voto >= 3 ? (
-                            <FontAwesomeIcon icon={faStar} style={{ color: '#FFD43B' }} />
-                        ) : (
-                            <FontAwesomeIcon icon={faStar} style={{ color: '#ffffff' }} />
-                        )}
-                        {voto >= 4 ? (
-                            <FontAwesomeIcon icon={faStar} style={{ color: '#FFD43B' }} />
-                        ) : (
-                            <FontAwesomeIcon icon={faStar} style={{ color: '#ffffff' }} />
-                        )}
-                        {voto >= 5 ? (
-                            <FontAwesomeIcon icon={faStar} style={{ color: '#FFD43B' }} />
-                        ) : (
-                            <FontAwesomeIcon icon={faStar} style={{ color: '#ffffff' }} />
-                        )}
+                        <div>
+                            {valutazioneFinale(voto)}
+                        </div>
                     </h4>
                 </div>
             </div>
