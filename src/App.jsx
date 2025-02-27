@@ -19,7 +19,7 @@ function App() {
   const [movies, setMovies] = useState([]);
 
 
-
+  // chiamata per i film
   function fetchMovies(query) {
     axios.get(`https://api.themoviedb.org/3/search/movie?api_key=a656c9d2486eeeb806449b024d6cb0c8&query=${query}`)
       .then(res => {
@@ -36,6 +36,7 @@ function App() {
   // utilizzo dello useState per gestire i dati delle serie
   const [series, setSeries] = useState([])
 
+  // chiamata per le serie 
   function fetchSeries(query) {
     axios.get(`https://api.themoviedb.org/3/search/tv?api_key=a656c9d2486eeeb806449b024d6cb0c8&query=${query}`)
       .then(res => {
