@@ -5,8 +5,11 @@ import TvSeriesComponent from "./TvSeriesComponent"
 export default function Main() {
     return (
         <>
-            <MoviesComponent />
-            <TvSeriesComponent />
+            <main>
+                <MoviesComponent />
+                <TvSeriesComponent />
+            </main>
+
         </>
     )
 }

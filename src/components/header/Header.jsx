@@ -28,18 +28,28 @@ export default function Header() {
 
     return (
         <>
+            <header>
+                <div>
+                    <h1>BoolFlix</h1>
+                </div>
 
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="wantedTitle"
-                    onChange={handleFormData}
-                    value={formData}
-                    placeholder="Cerca">
-                </input>
+                <div>
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            name="wantedTitle"
+                            onChange={handleFormData}
+                            value={formData}
+                            placeholder="Cerca">
+                        </input>
 
-                <button>Cerca</button>
-            </form>
+                        <button>Cerca</button>
+                    </form>
+                </div>
+            </header>
+
+
+
 
         </>
 

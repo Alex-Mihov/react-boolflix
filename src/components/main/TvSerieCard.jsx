@@ -8,10 +8,12 @@ export default function TvSerieCard(props) {
         <>
             <div className="section">
                 <div className="card">
-                    <h3>{serie.name}</h3>
-                    <h4>{serie.original_name}</h4>
-                    <span>{serie.original_language}</span>
-                    <h4>{serie.vote_average}</h4>
+                    <h3>Titolo: {serie.name}</h3>
+                    <h4>Titolo orinale: {serie.original_name}</h4>
+                    <img src={`https://image.tmdb.org/t/p/w342${serie.backdrop_path}`} alt={serie.name} />
+                    <br />
+                    <span>Lingua: {serie.original_language}</span>
+                    <h4>Valutazione: {serie.vote_average.toFixed(0)}</h4>
                 </div>
             </div>
         </>
