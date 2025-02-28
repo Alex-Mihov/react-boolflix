@@ -12,9 +12,10 @@ export default function TvSeriesComponent() {
 
     return (
         <>
+
             <div className="section">
                 {/* titolo sezione */}
-                <h1 className="titolo">Risultati per i le Serie</h1>
+                {series.length === 0 ? <h2></h2> : <h2 className="titoloRicerca">Risultati per Serie Tv</h2>}
 
 
                 {/* ciclo map per stampare tutti i film */}

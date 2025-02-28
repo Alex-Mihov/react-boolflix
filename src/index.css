@@ -49,8 +49,13 @@ main {
 
 }
 
-.titolo {
+.titoloRicerca {
     padding: 30px;
+}
+
+.titolo {
+    text-align: center;
+    margin-top: 300px;
 }
 
 main .cardSection {

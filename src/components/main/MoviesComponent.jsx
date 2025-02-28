@@ -15,7 +15,7 @@ export default function FilmComponent() {
         <>
             <div className="section">
                 {/* titolo sezione */}
-                <h1 className="titolo">Risultati per i Film</h1>
+                {movies.length === 0 ? <h2 className="titolo">Effettua ricerca</h2> : <h2 className="titoloRicerca">Risultati per Film</h2>}
 
 
                 {/* ciclo map per stampare tutti i film */}
@@ -24,7 +24,7 @@ export default function FilmComponent() {
                         movies.map(movie => <MovieCard key={movie.id} movie={movie} />)
                     }
                 </div>
-            </div>
+            </div >
 
         </>
     )
