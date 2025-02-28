@@ -50,7 +50,7 @@ export default function MovieCard(props) {
             <div className="containerCard">
                 <div className="card">
                     <div className="card-image">
-                        <img src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt={movie.name} />
+                        <img src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt={movie.title} />
                     </div>
 
                     <div className="card-content">
@@ -69,6 +69,11 @@ export default function MovieCard(props) {
                                 {valutazioneFinale(voto)}
                             </div>
                         </h4>
+
+                        <p>
+                            Overview:
+                            <br />{movie.overview}
+                        </p>
                     </div>
                 </div>
             </div>

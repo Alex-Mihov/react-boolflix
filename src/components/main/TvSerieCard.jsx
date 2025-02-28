@@ -71,6 +71,10 @@ export default function TvSerieCard(props) {
                                 {valutazioneFinale(voto)}
                             </div>
                         </h4>
+
+                        <p>
+                            <br />{serie.overview}
+                        </p>
                     </div>
                 </div>
             </div>

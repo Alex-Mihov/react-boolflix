@@ -68,6 +68,7 @@ main .cardSection {
     margin: 20px;
     width: 300px;
     height: 450px;
+
 }
 
 .card-content h3 {
@@ -102,9 +103,17 @@ main .cardSection {
     opacity: 0;
     padding: 10px;
     transition: opacity 0.5s ease;
+    overflow: scroll;
+    /* hidden scrollbar IE and Edge */
+    -ms-overflow-style: none;
+    /*hidden scrollbar Firefox */
+    scrollbar-width: none;
 }
 
-
+/*hidden scrollbar chrome */
+.card-content::-webkit-scrollbar {
+    display: none;
+}
 
 .card:hover .card-image img {
     opacity: 0;
