@@ -52,33 +52,28 @@ export default function TvSerieCard(props) {
             <div className="containerCard">
                 <div className="card">
                     <div className="card-image">
-                        <img src={`https://image.tmdb.org/t/p/w342${serie.backdrop_path}`} alt={serie.name} />
+                        <img src={`https://image.tmdb.org/t/p/w342${serie.poster_path}`} alt={serie.name} />
+                    </div>
+
+                    <div className="card-content">
+                        {/* titoli */}
+                        <h3>Titolo: {serie.name}</h3>
+                        <h4>Titolo orinale: {serie.original_name}</h4>
+                        <br />
+                        {/* badiera in base alla lingua */}
+                        <span>
+                            Lingua:
+                            <Flag code={getFlagCode(serie.original_language)} style={{ width: '24px', height: '16px' }} />
+                        </span>
+                        {/* valutazione */}
+                        <h4>
+                            <div>
+                                {valutazioneFinale(voto)}
+                            </div>
+                        </h4>
                     </div>
                 </div>
-
-                <div className="card-content">
-                    {/* titoli */}
-                    <h3>Titolo: {serie.name}</h3>
-                    <h4>Titolo orinale: {serie.original_name}</h4>
-                    <br />
-                    {/* badiera in base alla lingua */}
-                    <span>
-                        Lingua:
-                        <Flag code={getFlagCode(serie.original_language)} style={{ width: '24px', height: '16px' }} />
-                    </span>
-                    {/* valutazione */}
-                    <h4>
-                        <div>
-                            {valutazioneFinale(voto)}
-                        </div>
-                    </h4>
-                </div>
-
             </div>
-            <div className="card">
-
-            </div>
-
         </>
     )
 

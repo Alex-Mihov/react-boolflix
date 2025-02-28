@@ -47,27 +47,31 @@ export default function MovieCard(props) {
 
     return (
         <>
-
-            {/* card */}
-            <div className="card">
-                <h3>Titolo: {movie.title}</h3>
-                <h4>Titolo orinale: {movie.original_title}</h4>
-                <img
-                    src={`https://image.tmdb.org/t/p/w342${movie.backdrop_path}`}
-                    alt={movie.name}
-                />
-                <br />
-                <span>
-                    Lingua:
-                    <Flag code={getFlagCode(movie.original_language)} style={{ width: '24px', height: '16px' }} />
-                </span>
-                <h4>
-                    <div>
-                        {valutazioneFinale(voto)}
+            <div className="containerCard">
+                <div className="card">
+                    <div className="card-image">
+                        <img src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt={movie.name} />
                     </div>
-                </h4>
-            </div>
 
+                    <div className="card-content">
+                        {/* titoli */}
+                        <h3>Titolo: {movie.title}</h3>
+                        <h4>Titolo orinale: {movie.original_title}</h4>
+                        <br />
+                        {/* badiera in base alla lingua */}
+                        <span>
+                            Lingua:
+                            <Flag code={getFlagCode(movie.original_language)} style={{ width: '24px', height: '16px' }} />
+                        </span>
+                        {/* valutazione */}
+                        <h4>
+                            <div>
+                                {valutazioneFinale(voto)}
+                            </div>
+                        </h4>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }
