@@ -49,13 +49,17 @@ export default function TvSerieCard(props) {
 
     return (
         <>
-            <div className="section">
+            <div className="containerCard">
                 <div className="card">
+                    <div className="card-image">
+                        <img src={`https://image.tmdb.org/t/p/w342${serie.backdrop_path}`} alt={serie.name} />
+                    </div>
+                </div>
+
+                <div className="card-content">
                     {/* titoli */}
                     <h3>Titolo: {serie.name}</h3>
                     <h4>Titolo orinale: {serie.original_name}</h4>
-                    {/* immagine */}
-                    <img src={`https://image.tmdb.org/t/p/w342${serie.backdrop_path}`} alt={serie.name} />
                     <br />
                     {/* badiera in base alla lingua */}
                     <span>
@@ -69,7 +73,12 @@ export default function TvSerieCard(props) {
                         </div>
                     </h4>
                 </div>
-            </div >
+
+            </div>
+            <div className="card">
+
+            </div>
+
         </>
     )
 

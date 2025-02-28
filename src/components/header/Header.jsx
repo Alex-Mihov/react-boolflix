@@ -29,11 +29,11 @@ export default function Header() {
     return (
         <>
             <header>
-                <div>
-                    <h1>BoolFlix</h1>
+                <div className="headerTitle">
+                    <h1>BOOLFLIX</h1>
                 </div>
 
-                <div>
+                <div className="headerSearch">
                     <form onSubmit={handleSubmit}>
                         <input
                             type="text"

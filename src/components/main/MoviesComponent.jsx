@@ -13,13 +13,13 @@ export default function FilmComponent() {
 
     return (
         <>
-            <div>
+            <div className="section">
                 {/* titolo sezione */}
                 <h1 className="titolo">Risultati per i Film</h1>
 
 
                 {/* ciclo map per stampare tutti i film */}
-                <div>
+                <div className="cardSection">
                     {
                         movies.map(movie => <MovieCard key={movie.id} movie={movie} />)
                     }

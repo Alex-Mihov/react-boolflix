@@ -6,8 +6,14 @@ export default function Main() {
     return (
         <>
             <main>
+
                 <MoviesComponent />
+
+
+
                 <TvSeriesComponent />
+
+
             </main>
 
         </>

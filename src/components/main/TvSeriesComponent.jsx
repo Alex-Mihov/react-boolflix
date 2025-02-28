@@ -12,13 +12,13 @@ export default function TvSeriesComponent() {
 
     return (
         <>
-            <div>
+            <div className="section">
                 {/* titolo sezione */}
                 <h1 className="titolo">Risultati per i le Serie</h1>
 
 
                 {/* ciclo map per stampare tutti i film */}
-                <div>
+                <div className="cardSection">
                     {
                         series.map(serie => <TvSerieCard key={serie.id} serie={serie} />)
                     }
